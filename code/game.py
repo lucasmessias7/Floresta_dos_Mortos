@@ -18,10 +18,6 @@ class Game:
             menu.run()
             # poll for events
             # pygame.QUIT event means the user clicked X to close your window
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
 
             # fill the screen with a color to wipe away anything from last frame
 

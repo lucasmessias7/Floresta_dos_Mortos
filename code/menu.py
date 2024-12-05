@@ -13,7 +13,12 @@ class Menu():
 
         while True:
             self.screen.blit(source=self.background, dest=self.rect)
-            pygame.display.flip
-         
-        
-        pass
+            pygame.display.flip()
+
+
+            #checa todos os eventos
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
