@@ -1,17 +1,17 @@
 import pygame
 from code.menu import Menu
+from code.Const import JAN_LARGURA, JAN_ALTURA
 
 
 class Game:
 
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((800,600))
+        self.screen = pygame.display.set_mode(size=(JAN_LARGURA,JAN_ALTURA))
 
     
 
     def run(self):
-
 
         while True: 
             menu = Menu(self.screen)
