@@ -9,4 +9,5 @@ TEXT_FONT = pygame.font.Font('assets/fonts/Pixelmax-Regular.otf',80)
 TEXT_1 = 'Floresta'
 TEXT_2 = 'Dos Mortos'
 TEXT_COLOR = (255,255,255)
-TEXT_CENTER_POSITION = ((JAN_LARGURA / 2), 200 )
+TEXT_1_POSITION = ((JAN_LARGURA / 2), 180 )
+TEXT_2_POSITION = ((JAN_LARGURA / 2), 260 )
