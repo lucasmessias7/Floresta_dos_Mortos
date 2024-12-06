@@ -5,16 +5,18 @@ pygame.font.init()
 
 JAN_LARGURA = 600
 JAN_ALTURA = 600
-TEXT_FONT = pygame.font.Font('assets/fonts/Pixelmax-Regular.otf',40)
+TEXT_FONT = pygame.font.Font('assets/fonts/horroroidbold.ttf',40)
 TEXT_1 = 'Novo Jogo'
 TEXT_2 = 'Placar'
-TEXT_COLOR = (255,255,255)
+TEXT_3 = 'Sair'
+TEXT_COLOR = (204,9,4)
 TEXT_1_POSITION = ((JAN_LARGURA / 2), 450 )
 TEXT_2_POSITION = ((JAN_LARGURA / 2), 500 )
-
+TEXT_3_POSITION = ((JAN_LARGURA / 2), 550)
+NAMING_POSITION_X = (150, 100)
 
 #Menu
-MENU_OPTIONS_POSITION = ((JAN_LARGURA / 2), 300 )
-MENU_OPTIONS = ('New Game', 
-               'Ranking',
-               'exit')
+# MENU_OPTIONS_POSITION = ((JAN_LARGURA / 2), 300 )
+# MENU_OPTIONS = ('New Game', 
+#                'Ranking',
+#                'exit')
