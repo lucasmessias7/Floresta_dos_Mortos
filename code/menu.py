@@ -1,7 +1,7 @@
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.Const import JAN_ALTURA, JAN_LARGURA, TEXT_COLOR, TEXT_1, TEXT_1_POSITION, TEXT_FONT, TEXT_2, TEXT_2_POSITION
+from code.Const import JAN_ALTURA, JAN_LARGURA, TEXT_COLOR, TEXT_1, TEXT_1_POSITION, TEXT_FONT, TEXT_2, TEXT_2_POSITION, MENU_OPTIONS,MENU_OPTIONS_POSITION
 
 
 # pygame.init()
@@ -22,26 +22,30 @@ class Menu():
         while True:
             self.screen.blit(source=self.background, dest=self.rect) 
             
-            
             # renderizando os textos
             text_one = TEXT_FONT.render(TEXT_1, True, TEXT_COLOR).convert_alpha()
             text_two = TEXT_FONT.render(TEXT_2, True, TEXT_COLOR).convert_alpha()
 
+            
             #criando o retangulo para cada texto
             text_rect = text_one.get_rect(center=TEXT_1_POSITION)
             text_react_2 = text_two.get_rect(center=TEXT_2_POSITION)
+            
 
-            # text_two = TEXT_FONT.render(TEXT_2, True, TEXT_COLOR).convert_alpha()
-            # text_rect = text_two.get_rect(center=TEXT_CENTER_POSITION)
-
-
+            # desenhando os textos na tela
             self.screen.blit(source=text_one, dest=text_rect)
             self.screen.blit(source=text_two, dest=text_react_2)
 
             pygame.display.flip()
 
 
-            #checa todos os eventos
+            # Menu de opções
+
+        
+
+
+
+            # checa todos os eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
