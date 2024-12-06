@@ -1,7 +1,7 @@
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.Const import TEXT_COLOR, TEXT_1, TEXT_1_POSITION, TEXT_3_POSITION, TEXT_FONT, TEXT_2, TEXT_2_POSITION, NAMING_POSITION_X,TEXT_3
+from code.Const import COLOR_OPTIONS, TEXT_COLOR, TEXT_1, TEXT_1_POSITION, TEXT_3_POSITION, TEXT_FONT, TEXT_2, TEXT_2_POSITION, NAMING_POSITION_X,TEXT_3
 
 
 # pygame.init()
@@ -20,6 +20,7 @@ class Menu():
     def run(self):    
         pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         pygame.mixer_music.play(-1)
+        menu_option = 'text_one'
 
         while True:
             self.screen.blit(source=self.background, dest=self.rect) 
@@ -41,6 +42,8 @@ class Menu():
             self.screen.blit(source=text_one, dest=text_rect)
             self.screen.blit(source=text_two, dest=text_react_2)
             self.screen.blit(source=text_three, dest=text_react_3)
+
+
 
             pygame.display.flip()
 
