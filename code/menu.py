@@ -20,7 +20,7 @@ class Menu():
     def run(self):    
         # pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         # pygame.mixer_music.play(-1)
-        menu_option = 'text_one'
+        menu_option = 0
 
         while True:
             self.screen.blit(source=self.background, dest=self.rect) 
@@ -43,15 +43,14 @@ class Menu():
             # self.screen.blit(source=text_two, dest=text_react_2)
             # self.screen.blit(source=text_three, dest=text_react_3)
             for i in range(len(MENU_OPTIONS)):
+
                 self.menu_text(40,MENU_OPTIONS[i],MENU_COLOR,((JAN_LARGURA/2), 450 + 50 * i))
+                if i  == menu_option:
+                    self.menu_text(40,MENU_OPTIONS[i],COLOR_OPTIONS,((JAN_LARGURA/2), 450 + 50 * i))
+                else:
+                    self.menu_text(40,MENU_OPTIONS[i],MENU_COLOR,((JAN_LARGURA/2), 450 + 50 * i))
 
 
-            pygame.display.flip()
-
-
-            # Menu de opções
-
-        
 
 
 
@@ -61,6 +60,17 @@ class Menu():
                     pygame.quit()
                     quit()
 
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if menu_option < len(MENU_OPTIONS) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+
+                    
+                    
+
+            pygame.display.flip()
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.Font('assets/fonts/horroroidbold.ttf', size=text_size)
