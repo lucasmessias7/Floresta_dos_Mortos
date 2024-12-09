@@ -18,8 +18,6 @@ class Menu():
 
 
     def run(self):    
-        pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
-        pygame.mixer_music.play(-1)
         # pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         # pygame.mixer_music.play(-1)
         menu_option = 0
@@ -29,22 +27,7 @@ class Menu():
             self.screen.blit(source=self.background, dest=self.rect) 
             self.screen.blit(self.name_game, (NAMING_POSITION_X))
             
-            # # renderizando os textos
-            # text_one = TEXT_FONT.render(TEXT_1, True, TEXT_COLOR).convert_alpha()
-            # text_two = TEXT_FONT.render(TEXT_2, True, TEXT_COLOR).convert_alpha()
-            # text_three = TEXT_FONT.render(TEXT_3, True, TEXT_COLOR).convert_alpha()
 
-            
-            # #criando o retangulo para cada texto
-            # text_rect = text_one.get_rect(center=TEXT_1_POSITION)
-            # text_react_2 = text_two.get_rect(center=TEXT_2_POSITION)
-            # text_react_3 = text_three.get_rect(center=TEXT_3_POSITION)
-            
-
-            # # desenhando os textos na tela
-            # self.screen.blit(source=text_one, dest=text_rect)
-            # self.screen.blit(source=text_two, dest=text_react_2)
-            # self.screen.blit(source=text_three, dest=text_react_3)
             for i in range(len(MENU_OPTIONS)):
 
                 self.menu_text(40,MENU_OPTIONS[i],MENU_COLOR,((JAN_LARGURA/2), 450 + 50 * i))
@@ -69,9 +52,15 @@ class Menu():
                             menu_option += 1
                         else:
                             menu_option = 0
+                    if event.key == pygame.K_UP:
+                        if menu_option > 0:
+                            menu_option -= 1
+                        else:
+                            menu_option = len(MENU_OPTIONS) - 1
+                    
+                    if event.key == pygame.K_RETURN:
+                        return MENU_OPTIONS[menu_option]
 
-                    
-                    
 
             pygame.display.flip()
 
