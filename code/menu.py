@@ -11,8 +11,8 @@ class Menu():
 
     def __init__(self,screen):
         self.screen = screen
-        self.background = pygame.image.load('./assets/Designer_menu.png')
-        self.name_game = pygame.image.load('assets/Nome_jogo_2.png')
+        self.background = pygame.image.load('./assets/images/Designer_menu.png')
+        self.name_game = pygame.image.load('assets/images/Nome_jogo_2.png')
         self.rect = self.background.get_rect()
         self.rect_name = self.name_game.get_rect()
 

@@ -1,7 +1,7 @@
 import pygame
 from code.menu import Menu
-from code.Const import JAN_LARGURA, JAN_ALTURA
-
+from code.Const import JAN_LARGURA, JAN_ALTURA,MENU_OPTIONS
+from code.Level import Level
 
 class Game:
 
@@ -15,15 +15,11 @@ class Game:
 
         while True: 
             menu = Menu(self.screen)
-            menu.run()
-            # poll for events
-            # pygame.QUIT event means the user clicked X to close your window
+            return_menu = menu.run()
 
-            # fill the screen with a color to wipe away anything from last frame
-
-            # RENDER YOUR GAME HERE
-
-            # flip() the display to put your work on screen
-            pygame.display.flip() # limits FPS to 60
-
-        pygame.quit()
+            if return_menu in [MENU_OPTIONS[0]]:
+                level = Level(self.windows, 'Inicio', return_menu)
+                level_return = level.run()
+            elif return_menu == MENU_OPTIONS[2]:
+                pygame.quit()
+                quit()
