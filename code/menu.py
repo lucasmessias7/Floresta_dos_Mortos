@@ -20,7 +20,7 @@ class Menu():
     def run(self):    
         pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         pygame.mixer_music.play(-1)
-        menu_option = 'text_one'
+
 
         while True:
             self.screen.blit(source=self.background, dest=self.rect) 
