@@ -1,4 +1,6 @@
-from Entity import Entity
+from code.Entity import Entity
+from code.Const import JAN_LARGURA
+from code.Const import VELOCIDADE_ENTIDADE
 
 
 class Background(Entity):
@@ -8,4 +10,6 @@ class Background(Entity):
 
 
     def move(self,):
-        pass
+        self.rect.centerx -= VELOCIDADE_ENTIDADE[self.name]
+        if self.rect.right <= 0:
+            self.rect.left = JAN_LARGURA
