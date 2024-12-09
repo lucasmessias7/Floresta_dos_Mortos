@@ -1,7 +1,7 @@
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-from code.Const import COLOR_OPTIONS, TEXT_COLOR, TEXT_1, TEXT_1_POSITION, TEXT_3_POSITION, TEXT_FONT, TEXT_2, TEXT_2_POSITION, NAMING_POSITION_X,TEXT_3
+from code.Const import JAN_LARGURA, COLOR_OPTIONS, MENU_COLOR, TEXT_1_POSITION, TEXT_3_POSITION, TEXT_FONT, TEXT_2_POSITION, NAMING_POSITION_X, MENU_OPTIONS
 
 
 # pygame.init()
@@ -20,37 +20,40 @@ class Menu():
     def run(self):    
         pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         pygame.mixer_music.play(-1)
+        # pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
+        # pygame.mixer_music.play(-1)
+        menu_option = 0
 
 
         while True:
             self.screen.blit(source=self.background, dest=self.rect) 
             self.screen.blit(self.name_game, (NAMING_POSITION_X))
             
-            # renderizando os textos
-            text_one = TEXT_FONT.render(TEXT_1, True, TEXT_COLOR).convert_alpha()
-            text_two = TEXT_FONT.render(TEXT_2, True, TEXT_COLOR).convert_alpha()
-            text_three = TEXT_FONT.render(TEXT_3, True, TEXT_COLOR).convert_alpha()
+            # # renderizando os textos
+            # text_one = TEXT_FONT.render(TEXT_1, True, TEXT_COLOR).convert_alpha()
+            # text_two = TEXT_FONT.render(TEXT_2, True, TEXT_COLOR).convert_alpha()
+            # text_three = TEXT_FONT.render(TEXT_3, True, TEXT_COLOR).convert_alpha()
 
             
-            #criando o retangulo para cada texto
-            text_rect = text_one.get_rect(center=TEXT_1_POSITION)
-            text_react_2 = text_two.get_rect(center=TEXT_2_POSITION)
-            text_react_3 = text_three.get_rect(center=TEXT_3_POSITION)
+            # #criando o retangulo para cada texto
+            # text_rect = text_one.get_rect(center=TEXT_1_POSITION)
+            # text_react_2 = text_two.get_rect(center=TEXT_2_POSITION)
+            # text_react_3 = text_three.get_rect(center=TEXT_3_POSITION)
             
 
-            # desenhando os textos na tela
-            self.screen.blit(source=text_one, dest=text_rect)
-            self.screen.blit(source=text_two, dest=text_react_2)
-            self.screen.blit(source=text_three, dest=text_react_3)
+            # # desenhando os textos na tela
+            # self.screen.blit(source=text_one, dest=text_rect)
+            # self.screen.blit(source=text_two, dest=text_react_2)
+            # self.screen.blit(source=text_three, dest=text_react_3)
+            for i in range(len(MENU_OPTIONS)):
+
+                self.menu_text(40,MENU_OPTIONS[i],MENU_COLOR,((JAN_LARGURA/2), 450 + 50 * i))
+                if i  == menu_option:
+                    self.menu_text(40,MENU_OPTIONS[i],COLOR_OPTIONS,((JAN_LARGURA/2), 450 + 50 * i))
+                else:
+                    self.menu_text(40,MENU_OPTIONS[i],MENU_COLOR,((JAN_LARGURA/2), 450 + 50 * i))
 
 
-
-            pygame.display.flip()
-
-
-            # Menu de opções
-
-        
 
 
 
@@ -60,9 +63,20 @@ class Menu():
                     pygame.quit()
                     quit()
 
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if menu_option < len(MENU_OPTIONS) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+
+                    
+                    
+
+            pygame.display.flip()
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
-        text_font: Font = pygame.font.Font('assets\fonts\Pixelmax-Regular.otf', size=text_size)
+        text_font: Font = pygame.font.Font('assets/fonts/horroroidbold.ttf', size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.screen.blit(source=text_surf, dest=text_rect)
