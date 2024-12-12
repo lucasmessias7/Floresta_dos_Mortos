@@ -48,9 +48,6 @@ class Menu():
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
-
-                        
-
                         if menu_option < len(MENU_OPTIONS) - 1:
                             menu_option += 1
                         else:
