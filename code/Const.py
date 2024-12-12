@@ -7,7 +7,8 @@ JAN_LARGURA = 600
 JAN_ALTURA = 600
 
 SCREEN_SIZE = 600,600
-
+PLAYER_SIZE = 110,130
+PLAYER_POSITION = 10,300
 
 #MENU
 TEXT_FONT = pygame.font.Font('assets/fonts/horroroidbold.ttf',40)
@@ -30,13 +31,13 @@ COLOR_OPTIONS = (255,255,255)
 
 VELOCIDADE_ENTIDADE = {
     'jungle_bg0' : 0,
-    'jungle_bg1' : 2,
-    'jungle_bg2' : 1,
-    'jungle_bg3' : 1,
-    'jungle_bg4' : 1,
-    'jungle_bg5' : 1.6,
-    'jungle_bg6' : 1,
-    'jungle_bg7' : 1,
+    'jungle_bg2' : 0,
+    'jungle_bg1' : 0,
+    'jungle_bg3' : 0,
+    'jungle_bg4' : 0,
+    'jungle_bg5' : 0,
+    'jungle_bg6' : 0,
+    'jungle_bg7' : 0,
 }
 
 

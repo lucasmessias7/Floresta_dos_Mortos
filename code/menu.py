@@ -11,15 +11,15 @@ class Menu():
 
     def __init__(self,screen):
         self.screen = screen
-        self.background = pygame.image.load('./assets/images/Designer_menu.png')
-        self.name_game = pygame.image.load('assets/images/Nome_jogo_2.png')
+        self.background = pygame.image.load('./assets/images/Designer_menu.png').convert_alpha()
+        self.name_game = pygame.image.load('assets/images/Nome_jogo_2.png').convert_alpha()
         self.rect = self.background.get_rect()
         self.rect_name = self.name_game.get_rect()
 
 
     def run(self):    
-        pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
-        pygame.mixer_music.play(-1)
+        # pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
+        # pygame.mixer_music.play(-1)
         menu_option = 0
 
 
