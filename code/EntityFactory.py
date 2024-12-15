@@ -1,8 +1,8 @@
 from code.Background import Background
-from code.Const import JAN_LARGURA,PLAYER_POSITION
+from code.Const import JAN_LARGURA,PLAYER_POSITION, ENEMY_POSITION
 from code.Player import Player
-import pygame
-
+from code.Enemy import Enemy
+import random
 class EntityFactory:
 
     @staticmethod
@@ -17,6 +17,9 @@ class EntityFactory:
             
             case 'Walk1':
                 return Player('Walk1', PLAYER_POSITION)
+            
+            case 'InimigoWalk1':
+                return Enemy('InimigoWalk1', ENEMY_POSITION)
                 
                 
 

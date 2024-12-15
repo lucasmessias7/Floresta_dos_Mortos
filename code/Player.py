@@ -1,6 +1,5 @@
 from code.Entity import Entity
 from code.Const import PLAYER_SIZE, PLAYER_POSITION
-from code.Const import JAN_LARGURA
 import pygame
 
 class Player(Entity):

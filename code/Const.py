@@ -5,16 +5,20 @@ pygame.font.init()
 #TELA DE JOGO
 JAN_LARGURA = 600
 JAN_ALTURA = 600
-
 SCREEN_SIZE = 600,600
+
+
+#ENTIDADES
 PLAYER_SIZE = 110,130
+ENEMY_SIZE = 90,110
 PLAYER_POSITION = 10,300
+ENEMY_POSITION = 500, 300
+ENEMY_TIME = pygame.USEREVENT + 1
+
+
 
 #MENU
 TEXT_FONT = pygame.font.Font('assets/fonts/horroroidbold.ttf',40)
-# TEXT_1 = 'Novo Jogo'
-# TEXT_2 = 'Placar'
-# TEXT_3 = 'Sair'
 MENU_OPTIONS = (
         'Novo Jogo',
         'Placar',
@@ -40,10 +44,3 @@ VELOCIDADE_ENTIDADE = {
     'jungle_bg7' : 0,
 }
 
-
-#Menu
-
-# MENU_OPTIONS_POSITION = ((JAN_LARGURA / 2), 300 )
-# MENU_OPTIONS = ('New Game', 
-#                'Ranking',
-#                'exit')

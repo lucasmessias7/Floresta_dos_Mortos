@@ -1,6 +1,6 @@
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
-from code.Const import PLAYER_SIZE
+from code.Const import PLAYER_SIZE, ENEMY_TIME
 import pygame
 import sys
 
@@ -14,7 +14,7 @@ class Level:
         self.entity_list: list[Entity] = []    
         self.entity_list.extend(EntityFactory.get_entity('jungle_bg'))
         self.entity_list.append(EntityFactory.get_entity('Walk1'))
-
+        pygame.time.set_timer(ENEMY_TIME, 6000)
 
 
     def run(self,):
@@ -32,6 +32,8 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == ENEMY_TIME:
+                    self.entity_list.append(EntityFactory.get_entity('InimigoWalk1'))
                     
             pygame.display.flip()
     pass
