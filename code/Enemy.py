@@ -35,5 +35,7 @@ class Enemy(Entity):
 
         if self.rect.colliderect(player.rect):
            player.move_backwards()
-        # if self.rect.colliderect(player.rect):
-        #     player.move_backwards()
+           player.lives -= 1
+           player.life()
+        
+        

@@ -1,14 +1,17 @@
 from code.Entity import Entity
-from code.Const import PLAYER_SIZE
+from code.Const import PLAYER_SIZE,NAMING_POSITION_X
 import pygame
+
 
 class Player(Entity):
 
     def __init__(self, name:str, position:tuple):
         super().__init__(name, position)
+        self.game_over = pygame.image.load(f'assets\images\FIMDEJOGO.png').convert_alpha()
+        self.rect_name = self.game_over.get_rect(topleft = position)
         self.sprites = []
         for i in range (6):
-            sprite_walk = pygame.image.load(f'assets/images/Walk{i}.png')
+            sprite_walk = pygame.image.load(f'assets/images/Walk{i}.png').convert_alpha()
             sprite_walk= pygame.transform.scale(sprite_walk, PLAYER_SIZE)
             self.sprites.append(sprite_walk)
 
@@ -21,7 +24,7 @@ class Player(Entity):
 
         self.sprites_attack = []
         for i in range (4):
-            fight = pygame.image.load(f'assets/images/Attack{i}.png')
+            fight = pygame.image.load(f'assets/images/Attack{i}.png').convert_alpha()
             fight = pygame.transform.scale(fight, PLAYER_SIZE)
             self.sprites_attack.append(fight)
 
@@ -33,7 +36,7 @@ class Player(Entity):
         # self.surf = pygame.image.load(f'assets/images/{name}.png')
         # self.surf = pygame.transform.scale(self.surf, PLAYER_SIZE)
         # self.react = self.surf.get_rect(topleft=position)
-
+        self.lives = 3
     def move(self,):
         player_speed = 3
         pressed_key = pygame.key.get_pressed()
@@ -56,9 +59,20 @@ class Player(Entity):
 
 
 
+
     def move_backwards(self):
         self.rect.x -= 50
     
+
+
+    def life(self):
+        if self.lives == 0:
+            self.game_over.blit(self.windows, (NAMING_POSITION_X))
+            pygame.time.wait(5000)
+            
+
+
+
 
     def update_sprite(self,moved):
         if moved:
