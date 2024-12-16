@@ -3,10 +3,10 @@ from code.Const import JAN_LARGURA
 from code.Const import VELOCIDADE_ENTIDADE
 
 
+
 class Background(Entity):
     def __init__(self, name:str, position:tuple):
         super().__init__(name, position)
-        pass
 
 
     def move(self,):
