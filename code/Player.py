@@ -1,5 +1,5 @@
 from code.Entity import Entity
-from code.Const import PLAYER_SIZE, PLAYER_POSITION
+from code.Const import PLAYER_SIZE
 import pygame
 
 class Player(Entity):
@@ -37,7 +37,6 @@ class Player(Entity):
     def move(self,):
         player_speed = 3
         pressed_key = pygame.key.get_pressed()
-        click_key = pygame.KEYDOWN
 
         moved = False
         attack = False 
@@ -55,7 +54,12 @@ class Player(Entity):
         self.update_sprite(moved)
         self.player_attack(attack)
 
+
+
+    def move_backwards(self):
+        self.rect.x -= 50
     
+
     def update_sprite(self,moved):
         if moved:
             current_time = pygame.time.get_ticks()

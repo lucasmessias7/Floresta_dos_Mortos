@@ -1,6 +1,7 @@
 import pygame
-from code.Const import PLAYER_SIZE,ENEMY_SIZE
+from code.Const import ENEMY_SIZE
 from code.Entity import Entity
+
 
 class Enemy(Entity):
 
@@ -22,7 +23,7 @@ class Enemy(Entity):
             self.animation_speed = 0.1  
             self.animation_counter = 0
 
-    def move(self,):
+    def move(self, player):
         self.rect.x -= self.speed
         self.animation_counter += self.animation_speed
         if self.animation_counter >= 1:
@@ -30,3 +31,9 @@ class Enemy(Entity):
             self.surf = self.sprites_enemy[self.current_sprite]
             self.animation_counter = 0
         self.rect = self.surf.get_rect(topleft=self.rect.topleft)
+
+
+        if self.rect.colliderect(player.rect):
+           player.move_backwards()
+        # if self.rect.colliderect(player.rect):
+        #     player.move_backwards()
