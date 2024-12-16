@@ -20,6 +20,7 @@ class Menu():
     def run(self):    
         pygame.mixer_music.load('assets/Dorian_Concept _Hide.mp3')
         pygame.mixer_music.play(-1)
+
         menu_option = 0
 
 
@@ -48,14 +49,15 @@ class Menu():
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
-
-                        
-
+                        sound_menu = pygame.mixer.Sound('assets/menu-click-89198.mp3')
+                        pygame.mixer.Sound.play(sound_menu)
                         if menu_option < len(MENU_OPTIONS) - 1:
                             menu_option += 1
+
                         else:
                             menu_option = 0
                     if event.key == pygame.K_UP:
+                        pygame.mixer.Sound.play(sound_menu)
                         if menu_option > 0:
                             menu_option -= 1
                         else:
