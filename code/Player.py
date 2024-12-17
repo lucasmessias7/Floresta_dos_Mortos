@@ -1,5 +1,6 @@
 from code.Entity import Entity
 from code.Const import PLAYER_SIZE,NAMING_POSITION_X
+from code.menu import Menu
 import pygame
 
 
@@ -65,11 +66,8 @@ class Player(Entity):
     
 
 
-    def life(self):
-        if self.lives == 0:
-            self.game_over.blit(self.windows, (NAMING_POSITION_X))
-            pygame.time.wait(5000)
-            
+ 
+        
 
 
 

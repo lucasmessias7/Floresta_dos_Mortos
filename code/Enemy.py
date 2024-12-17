@@ -3,6 +3,7 @@ from code.Const import ENEMY_SIZE
 from code.Entity import Entity
 
 
+
 class Enemy(Entity):
 
 
@@ -22,8 +23,9 @@ class Enemy(Entity):
             self.speed = 3
             self.animation_speed = 0.1  
             self.animation_counter = 0
+            self.game_over = pygame.image.load(f'assets/images/FIMDEJOGO.png')
 
-    def move(self, player):
+    def move(self, player, level):
         self.rect.x -= self.speed
         self.animation_counter += self.animation_speed
         if self.animation_counter >= 1:
@@ -34,8 +36,16 @@ class Enemy(Entity):
 
 
         if self.rect.colliderect(player.rect):
-           player.move_backwards()
-           player.lives -= 1
-           player.life()
+            player.move_backwards()
+            player.lives -= 1
+            if player.lives == 0:
+                level.game_over()
+                pygame.time.wait(10000)
+                pygame.quit()
+                quit
+
+
+
+        #    player.life()
         
         
