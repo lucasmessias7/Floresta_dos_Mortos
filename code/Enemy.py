@@ -40,9 +40,7 @@ class Enemy(Entity):
             player.lives -= 1
             if player.lives == 0:
                 level.game_over()
-                pygame.time.wait(10000)
-                pygame.quit()
-                quit
+
 
 
 
