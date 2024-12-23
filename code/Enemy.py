@@ -36,10 +36,11 @@ class Enemy(Entity):
 
 
         if self.rect.colliderect(player.rect):
-            player.move_backwards()
-            player.lives -= 1
-            if player.lives == 0:
-                level.game_over()
+            if not player.player_attack:
+                player.move_backwards()
+                player.lives -= 1
+                if player.lives == 0:
+                    level.game_over()
 
 
 

@@ -3,6 +3,7 @@ from code.menu import Menu
 from code.Const import JAN_LARGURA, JAN_ALTURA,MENU_OPTIONS
 from code.Level import Level
 
+
 class Game:
 
     def __init__(self):
