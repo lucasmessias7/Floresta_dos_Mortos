@@ -22,7 +22,7 @@ class Player(Entity):
         self.rect = self.surf.get_rect(topleft=position)
         self.animation_time = 100
         self.last_update_time =pygame.time.get_ticks()
-
+        self.score = 0
 
         self.sprites_attack = []
         for i in range (4):
@@ -60,18 +60,8 @@ class Player(Entity):
         self.update_sprite(moved)
 
 
-
-
-
     def move_backwards(self):
         self.rect.x -= 50
-    
-
-
- 
-        
-
-
 
 
     def update_sprite(self,moved):
@@ -93,8 +83,27 @@ class Player(Entity):
             if self.current_sprite_attack == len(self.sprites_attack) - 1:
                 self.attacking = False
 
-            for entity in entity_list:
-                if isinstance(entity, Enemy) and self.rect.colliderect(entity.rect):
-                    entity_list.remove(entity)
-                    break
-        
+        enemies_to_remove = []
+        for entity in entity_list:
+            if isinstance(entity, Enemy) and self.rect.colliderect(entity.rect):
+                if entity not in enemies_to_remove:  # Verifica se o inimigo já está na lista
+                    enemies_to_remove.append(entity)
+                    self.score += 0.5  # Incrementa a pontuação ao derrotar um inimigo
+                    print(f"Pontuação: {self.score}")  # Adiciona um print para depuração
+
+        # Remover inimigos fora do loop de colisão
+        for enemy in enemies_to_remove:
+            entity_list.remove(enemy)
+
+
+
+    def show_score(self, screen):
+        font = pygame.font.Font(None, 36)
+        score_display = font.render("Score: " + str(self.score), True, (220, 20, 60))
+        screen.blit(score_display, (10, 10))
+    
+    
+    def show_live(self, screen):
+        font = pygame.font.Font(None, 36)
+        score_display = font.render("Vida: " + str(self.lives), True, (220, 20, 60))
+        screen.blit(score_display, (10, 40))

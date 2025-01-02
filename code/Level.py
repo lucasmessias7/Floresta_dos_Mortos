@@ -46,6 +46,8 @@ class Level:
                 if event.type == ENEMY_TIME:
                     self.entity_list.append(EntityFactory.get_entity('InimigoWalk1'))
             self.player.move(self.entity_list) 
+            self.player.show_score(self.windows)
+            self.player.show_live(self.windows)
             pygame.display.flip()
 
 
@@ -56,3 +58,6 @@ class Level:
         from code.game import Game
         self.game = Game()
         self.game.run()
+
+
+

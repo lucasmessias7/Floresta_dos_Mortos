@@ -15,6 +15,7 @@ class Menu():
         self.name_game = pygame.image.load('assets/images/Nome_jogo_2.png').convert_alpha()
         self.rect = self.background.get_rect()
         self.rect_name = self.name_game.get_rect()
+        self.sound_menu = pygame.mixer.Sound('assets\menu-click-89198.mp3')
 
 
     def run(self):    
@@ -47,6 +48,7 @@ class Menu():
                     quit()
 
                 if event.type == pygame.KEYDOWN:
+                    pygame.mixer.Sound.play(self.sound_menu)
                     if event.key == pygame.K_DOWN:
                         if menu_option < len(MENU_OPTIONS) - 1:
                             menu_option += 1
@@ -54,7 +56,6 @@ class Menu():
                         else:
                             menu_option = 0
                     if event.key == pygame.K_UP:
-                        # pygame.mixer.Sound.play(sound_menu)
                         if menu_option > 0:
                             menu_option -= 1
                         else:

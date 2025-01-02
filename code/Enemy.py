@@ -24,6 +24,7 @@ class Enemy(Entity):
             self.animation_speed = 0.1  
             self.animation_counter = 0
             self.game_over = pygame.image.load(f'assets/images/FIMDEJOGO.png')
+            self.show_score = 0
 
     def move(self, player, level):
         self.rect.x -= self.speed
@@ -36,14 +37,19 @@ class Enemy(Entity):
 
 
         if self.rect.colliderect(player.rect):
-            if not player.player_attack:
-                player.move_backwards()
-                player.lives -= 1
-                if player.lives == 0:
-                    level.game_over()
+                    if not player.attacking:
+                        self.enemy_attack(player, level)
+                    else:
+                        player.player_attack([self])
+    
 
-
-
+    def enemy_attack(self, player, level):
+        damage_sound = pygame.mixer.Sound('assets/damage.mp3')
+        pygame.mixer.Sound.play(damage_sound)
+        player.move_backwards()
+        player.lives -= 1
+        if player.lives == 0:
+            level.game_over()
 
         #    player.life()
         
