@@ -16,10 +16,7 @@ class Enemy(Entity):
                 self.sprites_enemy.append(sprite_walk)
             self.current_sprite = 0
             self.surf = self.sprites_enemy[self.current_sprite]
-            print(f'posição inicial: , {position}')
             self.rect = self.surf.get_rect(topleft=position)
-            print(f'posição final:  {self.rect}')
-            print(f'tamanho da imagem: {sprite_walk.get_size()}')
             self.speed = 3
             self.animation_speed = 0.1  
             self.animation_counter = 0

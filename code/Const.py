@@ -44,3 +44,14 @@ VELOCIDADE_ENTIDADE = {
     'jungle_bg7' : 0,
 }
 
+
+SCORE_POS = {'Title': (JAN_LARGURA / 2 , 50),
+             'EnterName': (JAN_LARGURA / 2, 80),
+             'Label': (JAN_LARGURA / 2, 90),
+             'Name': (JAN_LARGURA / 2, 110),
+             0: (JAN_LARGURA / 2 , 110),
+             1: (JAN_LARGURA / 2, 130),
+             2: (JAN_LARGURA / 2, 150),
+             3: (JAN_LARGURA / 2, 170),
+             4: (JAN_LARGURA / 2, 170)
+}
